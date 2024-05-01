@@ -7,12 +7,9 @@ class Set
 {
 
 public:
-	Set() : elements(new T[2]), capacity(2), count(0) {}
+	Set() = default;
 
-	~Set()
-	{
-		delete[] elements;
-	}
+	~Set() = default;
 
 	void Add(const T &element)
 	{
@@ -20,13 +17,13 @@ public:
 		{
 			if (count >= capacity)
 			{
-				T *newElements = new T[capacity * 2];
+				auto newElements = std::make_unique<T[]>(capacity * 2);
 				for (int i = 0; i < count; ++i)
 				{
 					newElements[i] = elements[i];
 				}
-				delete[] elements;
-				elements = newElements;
+
+				elements = std::move(newElements);
 				capacity *= 2;
 			}
 			elements[count++] = element;
@@ -106,9 +103,9 @@ public:
 	friend std::istream &operator>> <T>(std::istream &in, Set<T> &a);
 
 private:
-	T *elements;
-	int capacity;
-	int count;
+	std::unique_ptr<T[]> elements = std::make_unique<T[]>(2);
+	int capacity = 2;
+	int count = 0;
 };
 
 template <class T>
