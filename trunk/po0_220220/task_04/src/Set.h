@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <memory>
+#include <vector>
 
 template <typename T>
 class Set
@@ -17,16 +18,16 @@ public:
 		{
 			if (count >= capacity)
 			{
-				auto newElements = std::make_unique<T[]>(capacity * 2);
+				auto newElements = std::make_unique<std::vector<T>>(capacity * 2);
 				for (int i = 0; i < count; ++i)
 				{
-					newElements[i] = elements[i];
+					(*newElements)[i] = (*elements)[i];
 				}
 
 				elements = std::move(newElements);
 				capacity *= 2;
 			}
-			elements[count++] = element;
+			(*elements)[count++] = element;
 		}
 	}
 
@@ -50,7 +51,7 @@ public:
 	{
 		for (int i = 0; i < count; ++i)
 		{
-			if (elements[i] == element)
+			if ((*elements)[i] == element)
 			{
 				return true;
 			}
@@ -68,7 +69,7 @@ public:
 		std::cout << "{ ";
 		for (int i = 0; i < count; ++i)
 		{
-			std::cout << elements[i] << " ";
+			std::cout << (*elements)[i] << " ";
 		}
 		std::cout << "}" << std::endl;
 	}
@@ -80,7 +81,7 @@ public:
 
 	T operator[](const int index) const
 	{
-		return elements[index];
+		return (*elements)[index];
 	}
 
 	auto operator+(const Set<T> &set) const
@@ -93,7 +94,7 @@ public:
 		}
 		for (int i = 0; i < count; i++)
 		{
-			newSet->Add(elements[i]);
+			newSet->Add((*elements)[i]);
 		}
 
 		return newSet;
@@ -103,7 +104,7 @@ public:
 	friend std::istream &operator>> <T>(std::istream &in, Set<T> &a);
 
 private:
-	std::unique_ptr<T[]> elements = std::make_unique<T[]>(2);
+	std::unique_ptr<std::vector<T>> elements = std::make_unique<std::vector<T>>(2);
 	int capacity = 2;
 	int count = 0;
 };
