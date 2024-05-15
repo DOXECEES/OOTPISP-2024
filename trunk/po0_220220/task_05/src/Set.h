@@ -134,14 +134,14 @@ std::istream &operator>>(std::istream &in, Set<T> &a)
 template <class T>
 inline void Set<T>::PushMaxToBegin()
 {
-	auto max = std::ranges::max_element((*elements));
+	auto max = std::ranges::max_element(*elements);
 	(*elements).insert((*elements).begin(), *max);
 }
 
 template <class T>
 inline void Set<T>::DeleteMin()
 {
-	auto min = std::ranges::min_element((*elements));
+	auto min = std::ranges::min_element(*elements);
 	(*elements).erase(min);
 }
 

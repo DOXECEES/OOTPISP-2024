@@ -27,7 +27,7 @@ template <class T>
 void AddAverageValueToVector(std::vector<T> &vec)
 {
 	auto average = std::accumulate(vec.begin(), vec.end(), T());
-	average = average / static_cast<double>(vec.size());
+	average = average / static_cast<float>(vec.size());
 	std::ranges::for_each(vec, [average](auto &i)
 						  { i = i + average; });
 }
