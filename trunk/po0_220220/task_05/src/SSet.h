@@ -108,7 +108,6 @@ public:
         return elements[index];
     }
 
-
     void PushMaxToBegin();
     void DeleteMin();
     void AddAverageValueToStack();
@@ -144,7 +143,7 @@ template <class T>
 void SSet<T>::PushMaxToBegin()
 {
     std::optional<T> maxElement;
-    std::stack<T> tempStack;
+    std::stack<T> _tempStack;
 
     while (!stack.empty())
     {
@@ -152,7 +151,7 @@ void SSet<T>::PushMaxToBegin()
         {
             maxElement = stack.top();
         }
-        tempStack.push(stack.top());
+        _tempStack.push(stack.top());
         stack.pop();
     }
 
@@ -161,10 +160,10 @@ void SSet<T>::PushMaxToBegin()
         stack.push(*maxElement);
     }
 
-    while (!tempStack.empty())
+    while (!_tempStack.empty())
     {
-        stack.push(tempStack.top());
-        tempStack.pop();
+        stack.push(_tempStack.top());
+        _tempStack.pop();
     }
 }
 
@@ -178,29 +177,29 @@ void SSet<T>::DeleteMin()
     }
 
     T minElement = stack.top();
-    std::stack<T> tempStack;
+    std::stack<T> _tempStack;
     while (!stack.empty())
     {
         if (stack.top() < minElement)
         {
             minElement = stack.top();
         }
-        tempStack.push(stack.top());
+        _tempStack.push(stack.top());
         stack.pop();
     }
 
     bool removed = false;
-    while (!tempStack.empty())
+    while (!_tempStack.empty())
     {
-        if (tempStack.top() == minElement && !removed)
+        if (_tempStack.top() == minElement && !removed)
         {
             removed = true;
         }
         else
         {
-            stack.push(tempStack.top());
+            stack.push(_tempStack.top());
         }
-        tempStack.pop();
+        _tempStack.pop();
     }
 }
 
@@ -222,7 +221,7 @@ void SSet<T>::AddAverageValueToStack()
 
     T sum = std::accumulate(tempVec.begin(), tempVec.end(), T());
 
-    T average = sum / tempVec.size();
+    T average = sum / static_cast<T>(tempVec.size());
 
     for (auto &elem : tempVec)
     {

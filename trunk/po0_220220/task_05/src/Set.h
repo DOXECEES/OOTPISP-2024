@@ -134,14 +134,14 @@ std::istream &operator>>(std::istream &in, Set<T> &a)
 template <class T>
 inline void Set<T>::PushMaxToBegin()
 {
-	auto max = std::max_element((*elements).begin(), (*elements).end());
+	auto max = std::ranges::max_element((*elements));
 	(*elements).insert((*elements).begin(), *max);
 }
 
 template <class T>
 inline void Set<T>::DeleteMin()
 {
-	auto min = std::min_element((*elements).begin(), (*elements).end());
+	auto min = std::ranges::min_element((*elements));
 	(*elements).erase(min);
 }
 
@@ -150,6 +150,6 @@ inline void Set<T>::AddAverageValueToVector()
 {
 	auto average = std::accumulate((*elements).begin(), (*elements).end(), T());
 	average = average / (*elements).size();
-	std::for_each((*elements).begin(), (*elements).end(), [average](auto &i)
-				  { i = i + average; });
+	std::ranges::for_each((*elements), [average](auto &i)
+						  { i = i + average; });
 }

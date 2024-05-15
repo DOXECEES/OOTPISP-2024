@@ -27,7 +27,7 @@ Money Money::operator+(const Money &a) const
 
 Money Money::operator/(double val)
 {
-	this->penny /= val;
-	this->rubles /= val;
+	this->penny /= static_cast<int32_t>(val);
+	this->rubles /= static_cast<int32_t>(val);
 	return *this;
 }

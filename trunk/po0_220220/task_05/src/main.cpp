@@ -12,14 +12,14 @@
 template <class T>
 void PushMaxToBegin(std::vector<T> &vec)
 {
-	auto max = std::max_element(vec.begin(), vec.end());
+	auto max = std::ranges::max_element(vec);
 	vec.insert(vec.begin(), *max);
 }
 
 template <class T>
 void DeleteMin(std::vector<T> &vec)
 {
-	auto min = std::min_element(vec.begin(), vec.end());
+	auto min = std::ranges::min_element(vec);
 	vec.erase(min);
 }
 
@@ -27,9 +27,9 @@ template <class T>
 void AddAverageValueToVector(std::vector<T> &vec)
 {
 	auto average = std::accumulate(vec.begin(), vec.end(), T());
-	average = average / vec.size();
-	std::for_each(vec.begin(), vec.end(), [average](auto &i)
-				  { i = i + average; });
+	average = average / static_cast<double>(vec.size());
+	std::ranges::for_each(vec, [average](auto &i)
+						  { i = i + average; });
 }
 
 template <class T>
@@ -114,7 +114,7 @@ void AddAverageValueToStack(std::stack<T> &stack)
 
 	T sum = std::accumulate(tempVec.begin(), tempVec.end(), T());
 
-	T average = sum / tempVec.size();
+	T average = sum / static_cast<double>(tempVec.size());
 
 	for (auto &elem : tempVec)
 	{
