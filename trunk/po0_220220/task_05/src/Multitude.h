@@ -99,7 +99,7 @@ private:
 template <class T>
 std::ostream &operator<<(std::ostream &out, const Multitude<T> &a)
 {
-	a.print();
+	a.Show();
 	return out;
 }
 
@@ -110,7 +110,7 @@ std::istream &operator>>(std::istream &in, Multitude<T> &a)
 	{
 		T temp;
 		in >> temp;
-		a.Add(temp);
+		a.Insert(temp);
 	}
 	return in;
 }
