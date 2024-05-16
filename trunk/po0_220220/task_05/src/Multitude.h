@@ -87,33 +87,11 @@ public:
 	void DeleteMin();
 	void AddAverageValueToVector();
 
-	friend std::ostream &operator<< <T>(std::ostream &out, const Multitude<T> &a);
-	friend std::istream &operator>> <T>(std::istream &in, Multitude<T> &a);
-
 private:
 	std::unique_ptr<std::vector<T>> arr = std::make_unique<std::vector<T>>(2);
 	int capacity = 2;
 	int count = 0;
 };
-
-template <class T>
-std::ostream &operator<<(std::ostream &out, const Multitude<T> &a)
-{
-	a.Show();
-	return out;
-}
-
-template <class T>
-std::istream &operator>>(std::istream &in, Multitude<T> &a)
-{
-	for (int i = 0; i < a(); i++)
-	{
-		T temp;
-		in >> temp;
-		a.Insert(temp);
-	}
-	return in;
-}
 
 template <class T>
 inline void Multitude<T>::PushMaxToBegin()
