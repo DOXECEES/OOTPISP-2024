@@ -75,28 +75,12 @@ public:
 
 	int operator()() const
 	{
-		return Size();
+		return Lenght();
 	};
 
 	T operator[](const int index) const
 	{
 		return (*arr)[index];
-	}
-
-	auto operator+(const Multitude<T> &Multitude) const
-	{
-		auto newMultitude = std::make_unique<Multitude<T>>();
-
-		for (int i = 0; i < Multitude.Lenght(); i++)
-		{
-			newMultitude->Insert(Multitude[i]);
-		}
-		for (int i = 0; i < count; i++)
-		{
-			newMultitude->Add((*arr)[i]);
-		}
-
-		return newMultitude;
 	}
 
 	void PushMaxToBegin();

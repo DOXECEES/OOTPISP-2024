@@ -112,8 +112,8 @@ public:
     void DeleteMin();
     void AddAverageValueToStack();
 
-    friend std::ostream &operator<< <T>(std::ostream &out, const Set<T> &a);
-    friend std::istream &operator>> <T>(std::istream &in, Set<T> &a);
+    friend std::ostream &operator<< <T>(std::ostream &out, const SSet<T> &a);
+    friend std::istream &operator>> <T>(std::istream &in, SSet<T> &a);
 
 private:
     std::stack<T> tempStack;
