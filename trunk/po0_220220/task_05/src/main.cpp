@@ -6,7 +6,7 @@
 #include <optional>
 
 #include "Cash.h"
-#include "Set.h"
+#include "Multitude.h"
 #include "SSet.h"
 
 template <class T>
@@ -162,18 +162,18 @@ int main()
 	// TASK 3 //
 	// -----------------------------------------------//
 
-	Set<double> s;
-	s.Add(1.9f);
-	s.Add(1.333f);
-	s.Add(2.53f);
-	s.Add(0.4f);
-	s.Add(5.42f);
+	Multitude<double> s;
+	s.Insert(1.9f);
+	s.Insert(1.333f);
+	s.Insert(2.53f);
+	s.Insert(0.4f);
+	s.Insert(5.42f);
 
 	s.PushMaxToBegin();
 	s.DeleteMin();
 	s.AddAverageValueToVector();
 
-	s.print();
+	s.Show();
 
 	// -----------------------------------------------//
 
