@@ -131,13 +131,13 @@ int main()
 {
 	// TASK 1 //
 	// -----------------------------------------------//
-	std::vector<float> v = {1.0f, 2.0f, 4.0f, 3.3f};
+	std::vector<float> vectorOfFloats = {1.0f, 2.0f, 4.0f, 3.3f};
 
-	PushMaxToBegin(v);
-	DeleteMin(v);
-	AddAverageValueToVector(v);
+	PushMaxToBegin(vectorOfFloats);
+	DeleteMin(vectorOfFloats);
+	AddAverageValueToVector(vectorOfFloats);
 
-	for (auto i : v)
+	for (const auto &i : vectorOfFloats)
 	{
 		std::cout << i << " ";
 	}
@@ -146,13 +146,13 @@ int main()
 
 	// TASK 2 //
 	// -----------------------------------------------//
-	std::vector<Cash> vm = {Cash(1.66), Cash(4.51), Cash(0.4), Cash(6.53)};
+	std::vector<Cash> vectorOfCash = {Cash(1.66), Cash(4.51), Cash(0.4), Cash(6.53)};
 
-	PushMaxToBegin(vm);
-	DeleteMin(vm);
-	AddAverageValueToVector(vm);
+	PushMaxToBegin(vectorOfCash);
+	DeleteMin(vectorOfCash);
+	AddAverageValueToVector(vectorOfCash);
 
-	for (auto i : vm)
+	for (const auto &i : vectorOfCash)
 	{
 		std::cout << i << " ";
 	}
@@ -162,39 +162,39 @@ int main()
 	// TASK 3 //
 	// -----------------------------------------------//
 
-	Multitude<double> s;
-	s.Insert(1.9f);
-	s.Insert(1.333f);
-	s.Insert(2.53f);
-	s.Insert(0.4f);
-	s.Insert(5.42f);
+	Multitude<double> setOfDouble;
+	setOfDouble.Insert(1.9f);
+	setOfDouble.Insert(1.333f);
+	setOfDouble.Insert(2.53f);
+	setOfDouble.Insert(0.4f);
+	setOfDouble.Insert(5.42f);
 
-	s.PushMaxToBegin();
-	s.DeleteMin();
-	s.AddAverageValueToVector();
+	setOfDouble.PushMaxToBegin();
+	setOfDouble.DeleteMin();
+	setOfDouble.AddAverageValueToVector();
 
-	s.Show();
+	setOfDouble.Show();
 
 	// -----------------------------------------------//
 
 	// TASK 4 //
 	// -----------------------------------------------//
 
-	std::stack<Cash> st;
+	std::stack<Cash> somePieceOfStack;
 
-	st.push(Cash(1.66));
-	st.push(Cash(4.51));
-	st.push(Cash(0.4));
-	st.push(Cash(6.53));
+	somePieceOfStack.push(Cash(1.66));
+	somePieceOfStack.push(Cash(4.51));
+	somePieceOfStack.push(Cash(0.4));
+	somePieceOfStack.push(Cash(6.53));
 
-	PushMaxToBeginStack(st);
-	DeleteMinStack(st);
-	AddAverageValueToStack(st);
+	PushMaxToBeginStack(somePieceOfStack);
+	DeleteMinStack(somePieceOfStack);
+	AddAverageValueToStack(somePieceOfStack);
 
-	while (!st.empty())
+	while (!somePieceOfStack.empty())
 	{
-		std::cout << st.top() << " ";
-		st.pop();
+		std::cout << somePieceOfStack.top() << " ";
+		somePieceOfStack.pop();
 	}
 
 	// -----------------------------------------------//
@@ -202,16 +202,16 @@ int main()
 	// TASK 5 //
 	// -----------------------------------------------//
 
-	SSet<float> sa;
-	sa.Add(1.9f);
-	sa.Add(1.333f);
-	sa.Add(2.53f);
-	sa.Add(11.0f);
-	sa.Add(11.0f);
+	SSet<float> ssetOfFloats;
+	ssetOfFloats.Add(1.9f);
+	ssetOfFloats.Add(1.333f);
+	ssetOfFloats.Add(2.53f);
+	ssetOfFloats.Add(11.0f);
+	ssetOfFloats.Add(11.0f);
 
-	sa.PushMaxToBegin();
-	sa.DeleteMin();
-	sa.AddAverageValueToStack();
+	ssetOfFloats.PushMaxToBegin();
+	ssetOfFloats.DeleteMin();
+	ssetOfFloats.AddAverageValueToStack();
 
-	sa.print();
+	ssetOfFloats.print();
 }
