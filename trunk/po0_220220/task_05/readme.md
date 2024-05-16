@@ -101,7 +101,6 @@ void DeleteMinStack(std::stack<T> &stack)
 		tempStack.pop();
 	}
 }
-
 template <class T>
 void AddAverageValueToStack(std::stack<T> &stack)
 {
