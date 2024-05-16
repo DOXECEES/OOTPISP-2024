@@ -26,7 +26,7 @@ public:
 				arr = std::move(newarr);
 				capacity *= 2;
 			}
-			(*arr)[count++] = element;
+			(*arr)[count + 1] = element;
 		}
 	}
 
@@ -111,7 +111,7 @@ template <class T>
 inline void Multitude<T>::AddAverageValueToVector()
 {
 	auto average = std::accumulate((*arr).begin(), (*arr).end(), T());
-	average = average / (*arr).size();
+	average = average / static_cast<double>((*arr).size());
 	std::ranges::for_each((*arr), [average](auto &i)
 						  { i = i + average; });
 }
