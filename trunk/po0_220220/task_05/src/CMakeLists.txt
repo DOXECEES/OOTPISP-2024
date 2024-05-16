@@ -5,9 +5,9 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 set(SOURCE_FILES main.cpp
-Money.cpp)
+Cash.cpp)
 
-set(HEADER_FILES Money.h Set.h SSet.h)
+set(HEADER_FILES Cash.h Set.h SSet.h)
 
 set(ALL_SOURCES ${HEADER_FILSE}
 				${SOURCE_FILES})

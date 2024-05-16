@@ -5,7 +5,7 @@
 #include <numeric>
 #include <optional>
 
-#include "Money.h"
+#include "Cash.h"
 #include "Set.h"
 #include "SSet.h"
 
@@ -146,7 +146,7 @@ int main()
 
 	// TASK 2 //
 	// -----------------------------------------------//
-	std::vector<Money> vm = {Money(1.66), Money(4.51), Money(0.4), Money(6.53)};
+	std::vector<Cash> vm = {Cash(1.66), Cash(4.51), Cash(0.4), Cash(6.53)};
 
 	PushMaxToBegin(vm);
 	DeleteMin(vm);
@@ -180,12 +180,12 @@ int main()
 	// TASK 4 //
 	// -----------------------------------------------//
 
-	std::stack<Money> st;
+	std::stack<Cash> st;
 
-	st.push(Money(1.66));
-	st.push(Money(4.51));
-	st.push(Money(0.4));
-	st.push(Money(6.53));
+	st.push(Cash(1.66));
+	st.push(Cash(4.51));
+	st.push(Cash(0.4));
+	st.push(Cash(6.53));
 
 	PushMaxToBeginStack(st);
 	DeleteMinStack(st);
